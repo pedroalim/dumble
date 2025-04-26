@@ -2,8 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller('olamundo')
 export class OlamundoController {
-    @Get()
-    getHello(): string {
-        return 'ola mundo teste!';
-    }
+    @Get() // o método HTTP
+    getHello(): string {    
+        return 'Salve quebrada! Tamo junto e misturado! 🔥';
+    }   
 }
