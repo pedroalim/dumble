@@ -17,7 +17,7 @@ export class OlamundoController {
         const num1 = parseInt(n1);
         const num2 = parseInt(n2);
         const soma = num1 + num2;
-        
+
         return `A soma de ${num1} + ${num2} = ${soma}`;
     }
-}
+} 
