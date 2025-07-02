@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Plus } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import { useNavigate } from "react-router";
 
 export default function TeachersClasses() {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,8 @@ export default function TeachersClasses() {
   useEffect(() => {
     //setOpen(true);
   }, []);
+
+  const navigateTo = useNavigate();
 
   async function handleAddClass() {
     if (!className || !classAcronym || !classDescription) {
@@ -95,6 +98,12 @@ export default function TeachersClasses() {
             </DialogFooter>
           </DialogContent>
       </Dialog>
+      <div>
+        <div className="mt-4">
+          <p className="text-gray-500">Clique na turma para acessar</p>
+          <p onClick={() => navigateTo('/students/')}>Turma XXXX</p>
+        </div>
+      </div>
     </div>
   );
 }

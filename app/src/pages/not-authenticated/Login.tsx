@@ -6,13 +6,13 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { ModeToggle } from "@/components/mode-toggle";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Eye, EyeOff } from "lucide-react"; // Importe os ícones
+import { Eye, EyeOff } from "lucide-react"; 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accountType, setAccountType] = useState("option-student");
-  const [showPassword, setShowPassword] = useState(false); // Novo estado para controlar a visibilidade da senha
+  const [showPassword, setShowPassword] = useState(false); 
 
   const navigateTo = useNavigate();
 
@@ -21,9 +21,9 @@ export default function Login() {
     toast.success("Logado com sucesso!");
 
     if (accountType === "option-student") {
-      navigateTo("/students/");
+      navigateTo("/students/classes");
     } else if (accountType === "option-teacher") {
-      navigateTo("/teachers/");
+      navigateTo("/teachers/classes");
     }
   }
 
@@ -49,22 +49,22 @@ export default function Login() {
           </div>
 
           <div>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Senha</Label>
             <div className="relative">
               <Input
                 id="password"
-                type={showPassword ? "text" : "password"} // Altera o tipo do input
-                placeholder="Password"
+                type={showPassword ? "text" : "password"} 
+                placeholder="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="pr-10" // Adiciona padding à direita para o ícone
+                className="pr-10"
               />
               <Button
                 type="button"
                 variant="ghost"
                 size="sm"
                 className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                onClick={() => setShowPassword((prev) => !prev)} // Alterna a visibilidade
+                onClick={() => setShowPassword((prev) => !prev)} 
               >
                 {showPassword ? (
                   <EyeOff className="h-4 w-4" aria-hidden="true" />

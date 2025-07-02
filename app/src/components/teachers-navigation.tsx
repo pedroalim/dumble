@@ -21,36 +21,36 @@ export default function TeachersNavigation({ activePage }: TeachersNavigationPro
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem className="px-4">
-              <Link to="/teachers/files">
-                <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'files' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
+                <Link to="/teachers/files">
                   <Files />
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="px-4">
-              <Link to="/teachers/">
-                <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'home' ? 'border-2 rounded-2xl border-violet-400' : ''}`} >
+                <Link to="/teachers/">
                   <Home />
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="px-4">
-              <Link to="/teachers/ranking">
-                <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'ranking' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
+                <Link to="/teachers/ranking">
                   <Trophy />
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="px-4">
-              <Link to="/teachers/profile">
-                <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'profile' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
+                <Link to="/teachers/profile">
                   <User />
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

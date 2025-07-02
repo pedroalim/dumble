@@ -20,37 +20,37 @@ export default function StudentsNavigation({ activePage }: StudentsNavigationPro
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem className="px-4">
-              <Link to="/students/chatbot">
-                <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'chatBot' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
+                <Link to="/students/chatbot">
                   <BotMessageSquare />
-                </NavigationMenuLink>
-              </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="px-4">
-                <Link to="/students/">
-                  <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="px-4">
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'home' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                    <Home />
-                  </NavigationMenuLink>
+                <Link to="/students/">
+                  <Home />
                 </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="px-4">
-                <Link to="/students/ranking">
-                  <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="px-4">
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'ranking' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                    <Trophy />
-                  </NavigationMenuLink>
+                <Link to="/students/ranking">
+                  <Trophy />
                 </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="px-4">
-                <Link to="/students/profile">
-                  <NavigationMenuLink className={`flex h-16 w-16 items-center justify-center cursor-pointer
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="px-4">
+              <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'profile' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                    <User />
-                  </NavigationMenuLink>
+                <Link to="/students/profile">
+                  <User />
                 </Link>
-              </NavigationMenuItem>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
