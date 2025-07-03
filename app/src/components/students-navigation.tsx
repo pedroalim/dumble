@@ -5,7 +5,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { BotMessageSquare, Home, Trophy, User } from "lucide-react"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export type StudentPage = 'home'  | 'chatBot' | 'profile' | 'ranking';
 
@@ -14,6 +14,8 @@ interface StudentsNavigationProps {
 }
 
 export default function StudentsNavigation({ activePage }: StudentsNavigationProps) {
+  const { classCode } = useParams<{ classCode: string }>();
+
   return (
     <div className="fixed bottom-0 left-0 w-full border-t bg-background">
       <div className="flex justify-center p-4">
@@ -22,7 +24,7 @@ export default function StudentsNavigation({ activePage }: StudentsNavigationPro
             <NavigationMenuItem className="px-4">
               <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'chatBot' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                <Link to="/students/chatbot">
+                <Link to={`/students/${classCode}/chatbot/`}>
                   <BotMessageSquare />
                 </Link>
               </NavigationMenuLink>
@@ -30,7 +32,7 @@ export default function StudentsNavigation({ activePage }: StudentsNavigationPro
             <NavigationMenuItem className="px-4">
               <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'home' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                <Link to="/students/">
+                <Link to={`/students/${classCode}`}>
                   <Home />
                 </Link>
               </NavigationMenuLink>
@@ -38,7 +40,7 @@ export default function StudentsNavigation({ activePage }: StudentsNavigationPro
             <NavigationMenuItem className="px-4">
               <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'ranking' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                <Link to="/students/ranking">
+                <Link to={`/students/${classCode}/ranking`}>
                   <Trophy />
                 </Link>
               </NavigationMenuLink>
@@ -46,7 +48,7 @@ export default function StudentsNavigation({ activePage }: StudentsNavigationPro
             <NavigationMenuItem className="px-4">
               <NavigationMenuLink asChild className={`flex h-16 w-16 items-center justify-center cursor-pointer
                                                 ${activePage === 'profile' ? 'border-2 rounded-2xl border-violet-400' : ''}`}>
-                <Link to="/students/profile">
+                <Link to={`/students/${classCode}/profile`}>
                   <User />
                 </Link>
               </NavigationMenuLink>

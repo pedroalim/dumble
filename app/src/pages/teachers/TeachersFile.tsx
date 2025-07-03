@@ -1,13 +1,17 @@
+import CurrentClass from "@/components/current-class";
 import TeachersNavigation from "@/components/teachers-navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { File, Trash, Upload } from "lucide-react";
 import { useRef, useState } from "react";
+import { useParams } from "react-router";
 import { toast } from "sonner";
 
 export default function TeachersFile() {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const { classCode } = useParams<{ classCode: string }>();
 
   function handleUpload(){
     inputFileRef.current?.click();
@@ -25,8 +29,9 @@ export default function TeachersFile() {
 
   return (
     <div className="min-h-screen p-6 max-w-2xl mx-auto">
-      <div className="w-full">
-         <h1 className="text-4xl font-bold mb-4">Arquivos do Professor</h1>
+      <CurrentClass acronym={`ED`} code={`ED-1234`} title={`Estrutura de Dados`} userType="teacher"/>
+      <div className="w-full pt-18">
+         <h1 className="text-4xl font-bold mb-4">Arquivos do Professor - {classCode}</h1>
           <Input 
             type="file" 
             multiple 
