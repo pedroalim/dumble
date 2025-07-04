@@ -7,7 +7,7 @@ export default function StudentsChatBot() {
 
   return (
     <div>
-      <CurrentClass acronym={`ED`} code={`ED-1234`} title={`Estrutura de Dados`} />
+      <CurrentClass acronym={`ED`} code={`ED-1234`} title={`Estrutura de Dados`} userType="student"/>
       <div className="min-h-screen flex items-center justify-center pb-24">
         <h1 className="text-4xl font-bold mb-4">ChatBot do Estudante - {classCode}</h1>
       </div>

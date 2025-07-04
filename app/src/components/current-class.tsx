@@ -12,7 +12,7 @@ interface CurrentClassProps {
 export default function CurrentClass({ acronym, title, code, userType }: CurrentClassProps) {
   return (
     <Link to={`/${userType}s/classes`}>
-        <div className="fixed top-0 left-0 right-0 z-50 bg-background p-4">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-background p-4 pb-0">
             <div className="w-full max-w-2xl mx-auto border-2 dark:border-gray-800 white:border-gray-400 rounded-xl p-2 cursor-pointer flex items-center gap-4">
                 <ChevronLeft className="h-5 w-5 text-gray-500" />
                 <div className="flex-grow">

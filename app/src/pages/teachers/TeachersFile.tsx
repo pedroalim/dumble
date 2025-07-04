@@ -30,7 +30,7 @@ export default function TeachersFile() {
   return (
     <div className="min-h-screen p-6 max-w-2xl mx-auto">
       <CurrentClass acronym={`ED`} code={`ED-1234`} title={`Estrutura de Dados`} userType="teacher"/>
-      <div className="w-full pt-18">
+      <div className="w-full pt-18 max-w-2xl">
          <h1 className="text-4xl font-bold mb-4">Arquivos do Professor - {classCode}</h1>
           <Input 
             type="file" 
@@ -40,7 +40,7 @@ export default function TeachersFile() {
             ref={inputFileRef} 
             onChange={(e) => setSelectedFiles(Array.from(e.target.files || []))} 
           />
-          <div className="flex items-center justify-center border-2 border-dashed bg-none rounded-2xl w-2xl h-24 hover:border-violet-400 cursor-pointer" onClick={handleUpload}>
+          <div className="flex items-center justify-center border-2 border-dashed bg-none rounded-2xl max-w-2xl h-24 hover:border-violet-400 cursor-pointer" onClick={handleUpload}>
             <Upload />
             <span className="pl-4">Subir Arquivo</span>
           </div>
@@ -49,7 +49,7 @@ export default function TeachersFile() {
               <p className="text-lg font-semibold mb-2">Arquivos selecionados:</p>
               <ul className="space-y-2">
                 {selectedFiles.map((file, index) => (
-                  <li key={index} className="flex items-center justify-between p-2 border rounded-md w-2xl">
+                  <li key={index} className="flex items-center justify-between p-2 border rounded-md max-w-2xl">
                     <div className="flex items-center">
                       <File className="h-5 w-5 mr-2 text-gray-600 dark:text-gray-300" />
                       <span className="truncate pr-2">{file.name}</span>
@@ -66,7 +66,7 @@ export default function TeachersFile() {
               </ul>
             </div>
           )}
-          <Button className={`w-2xl mt-4 bg-emerald-400 hover:bg-emerald-700 ${selectedFiles.length === 0 ? 'bg-gray-400' : ''}`} onClick={() => handleSaveUploads()} disabled={selectedFiles.length === 0}>Salvar</Button>
+          <Button className={`w-full mt-4 bg-emerald-400 hover:bg-emerald-700 ${selectedFiles.length === 0 ? 'bg-gray-400' : ''}`} onClick={() => handleSaveUploads()} disabled={selectedFiles.length === 0}>Salvar</Button>
       </div>
       <TeachersNavigation activePage="files" />
     </div>

@@ -12,6 +12,7 @@ import TeachersFile from "./pages/teachers/TeachersFile.tsx";
 import TeachersRanking from "./pages/teachers/TeachersRanking.tsx";
 import TeachersProfile from "./pages/teachers/TeachersProfile.tsx";
 import TeachersClasses from "./pages/teachers/TeachersClasses.tsx";
+import StudentsQuestion from "./pages/students/StudentsQuestion.tsx";
 
 export default function AppRoutes() {
   return (
@@ -27,6 +28,7 @@ export default function AppRoutes() {
       <Route path="/students/:classCode/chatbot" element={<StudentsChatBot />} />
       <Route path="/students/:classCode/ranking" element={<StudentsRanking />} />
       <Route path="/students/:classCode/profile" element={<StudentsProfile />} />
+      <Route path="/students/:classCode/questions/:questionCode" element={<StudentsQuestion />} />
 
       {/* Teachers Routes */}
       <Route path="/teachers/classes" element={<TeachersClasses />} />
