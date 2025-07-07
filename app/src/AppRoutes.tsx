@@ -28,7 +28,7 @@ export default function AppRoutes() {
       <Route path="/students/:classCode/chatbot" element={<StudentsChatBot />} />
       <Route path="/students/:classCode/ranking" element={<StudentsRanking />} />
       <Route path="/students/:classCode/profile" element={<StudentsProfile />} />
-      <Route path="/students/:classCode/questions/:questionCode" element={<StudentsQuestion />} />
+      <Route path="/students/:classCode/questions/:questionId" element={<StudentsQuestion />} />
 
       {/* Teachers Routes */}
       <Route path="/teachers/classes" element={<TeachersClasses />} />
