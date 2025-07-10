@@ -1,12 +1,17 @@
+
 import { Check, X } from "lucide-react";
-import { Link } from "react-router";
 import { Button } from "./ui/button";
 
-interface QuestionsProgressBarProps {
+interface QuestionsFooterProps {
   state: 'none' | 'correct' | 'wrong';
+  onContinue: () => void;
 }
 
-export default function QuestionsFooter({ state }: QuestionsProgressBarProps) {
+export default function QuestionsFooter({ state, onContinue }: QuestionsFooterProps) {
+
+  const handleContinue = () => {
+    onContinue();
+  }
 
   return (
     <div className="fixed bottom-0 left-0 right-0 p-4 border-t bg-background z-20">
@@ -29,11 +34,12 @@ export default function QuestionsFooter({ state }: QuestionsProgressBarProps) {
                 <div className="w-0 h-0"></div>
             }
             <div className="w-full sm:w-auto">
-                <Button asChild className={`w-full ${state === 'correct' ? 'bg-lime-400 hover:bg-lime-300' : state === 'wrong' ? 'bg-red-400 hover:bg-red-300' : ''}`}>
-                    <Link to={'/'}>CONTINUAR</Link>
+                <Button onClick={handleContinue} className={`w-full ${state === 'correct' ? 'bg-lime-400 hover:bg-lime-300' : state === 'wrong' ? 'bg-red-400 hover:bg-red-300' : ''}`}>
+                    CONTINUAR
                 </Button>
             </div>
         </div>
     </div>
   );
 }
+
