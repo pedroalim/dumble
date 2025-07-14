@@ -9,7 +9,7 @@ export default function StudentsHome() {
   return (
     <div>
       <CurrentClass acronym={`ED`} code={`ED-1234`} title={`Estrutura de Dados`} userType="student"/>
-      <div className="min-h-screen flex items-center justify-center mt-24 pb-24"> 
+      <div className="min-h-screen flex items-center justify-center mt-24 mb-24"> 
         <QuestionsTrail />
       </div>
 

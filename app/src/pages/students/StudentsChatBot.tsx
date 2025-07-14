@@ -2,87 +2,62 @@ import CurrentClass from "@/components/current-class";
 import StudentsNavigation from "@/components/students-navigation";
 import { useParams } from "react-router";
 
-import * as React from "react"
-import { ArrowUpIcon } from "lucide-react"
+import * as React from "react";
+import { ArrowUpIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 export default function StudentsChatBot() {
   const { classCode } = useParams<{ classCode: string }>();
 
   const [messages, setMessages] = React.useState([
-    {
-      role: "agent",
-      content: "Hi, how can I help you today?",
-    },
-    {
-      role: "user",
-      content: "Hey, I'm having trouble with my account.",
-    },
-    {
-      role: "agent",
-      content: "What seems to be the problem?",
-    },
-    {
-      role: "user",
-      content: "I can't log in.",
-    },
-    {
-      role: "agent",
-      content: "Hi, how can I help you today?",
-    },
-    {
-      role: "user",
-      content: "Hey, I'm having trouble with my account.",
-    },
-    {
-      role: "agent",
-      content: "What seems to be the problem?",
-    },
-    {
-      role: "user",
-      content: "I can't log in.",
-    },
-    {
-      role: "agent",
-      content: "Hi, how can I help you today?",
-    },
-    {
-      role: "user",
-      content: "Hey, I'm having trouble with my account.",
-    },
-    {
-      role: "agent",
-      content: "What seems to be the problem?",
-    },
-    {
-      role: "user",
-      content: "I can't log in.",
-    },
-  ])
-  const [input, setInput] = React.useState("")
-  const inputLength = input.trim().length
+    { role: "agent", content: "Hi, how can I help you today?" },
+    { role: "user", content: "Hey, I'm having trouble with my account." },
+    { role: "agent", content: "What seems to be the problem?" },
+    { role: "user", content: "I can't log in." },
+    { role: "agent", content: "Hi, how can I help you today?" },
+    { role: "user", content: "Hey, I'm having trouble with my account." },
+    { role: "agent", content: "What seems to be the problem?" },
+    { role: "user", content: "I can't log in." },
+    { role: "agent", content: "Hi, how can I help you today?" },
+    { role: "user", content: "Hey, I'm having trouble with my account." },
+    { role: "agent", content: "What seems to be the problem?" },
+    { role: "user", content: "I can't log in." },
+  ]);
+  const [input, setInput] = React.useState("");
+  const inputLength = input.trim().length;
 
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
-    <div>
-      <CurrentClass acronym={`ED`} code={`${classCode}`} title={`Estrutura de Dados`} userType="student"/>
-      <div className="flex items-center justify-center">
-        <Card className="w-2xl mt-24 h-full">
-          <CardHeader className="flex flex-row items-center">
+    <div className="flex flex-col h-screen">
+      <CurrentClass
+        acronym={`ED`}
+        code={`${classCode}`}
+        title={`Estrutura de Dados`}
+        userType="student"
+      />
+
+      <div className="flex-grow overflow-hidden px-4 flex justify-center mt-24 mb-28">
+        <Card className="w-full max-w-2xl flex flex-col h-full">
+          <CardHeader className="flex-shrink-0 flex flex-row items-center">
             <div className="flex items-center gap-4">
               <Avatar className="border">
                 <AvatarImage src="/avatars/01.png" alt="Image" />
@@ -94,8 +69,9 @@ export default function StudentsChatBot() {
               </div>
             </div>
           </CardHeader>
-          <CardContent>
-            <div className="flex flex-col gap-4 max-h-[300px] overflow-y-auto">
+
+          <CardContent className="flex-grow overflow-y-auto px-4">
+            <div className="flex flex-col gap-4 pb-4">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -109,21 +85,23 @@ export default function StudentsChatBot() {
                   {message.content}
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
           </CardContent>
-          <CardFooter>
+
+          <CardFooter className="flex-shrink-0 border-t">
             <form
               onSubmit={(event) => {
-                event.preventDefault()
-                if (inputLength === 0) return
+                event.preventDefault();
+                if (inputLength === 0) return;
                 setMessages([
                   ...messages,
                   {
                     role: "user",
                     content: input,
                   },
-                ])
-                setInput("")
+                ]);
+                setInput("");
               }}
               className="relative w-full"
             >
@@ -148,7 +126,8 @@ export default function StudentsChatBot() {
           </CardFooter>
         </Card>
       </div>
+
       <StudentsNavigation activePage="chatBot" />
     </div>
-  )
+  );
 }
