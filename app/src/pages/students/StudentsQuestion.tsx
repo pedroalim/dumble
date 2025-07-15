@@ -5,7 +5,7 @@ import QuestionsFooter from "@/components/questions-footer";
 import QuestionsProgressBar from "@/components/questions-progress-bar";
 import { useParams } from "react-router";
 import QuestionMultipleChoice from "@/components/question-multiple-choice";
-import QuestionFillInTheBlack from "@/components/question-fill-in-the-black";
+import QuestionFillInTheBlank from "@/components/question-fill-in-the-blank";
 
 export default function StudentsQuestion() {
   const { classCode, questionId } = useParams<{ classCode: string; questionId: string }>();
@@ -36,7 +36,7 @@ export default function StudentsQuestion() {
             onValidationComplete={handleValidationComplete}
           />
         ) : (
-          <QuestionFillInTheBlack 
+          <QuestionFillInTheBlank 
             showResults={showResults} 
             onValidationComplete={handleValidationComplete}
           />

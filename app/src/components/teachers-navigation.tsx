@@ -17,7 +17,7 @@ export default function TeachersNavigation({ activePage }: TeachersNavigationPro
   const { classCode } = useParams<{ classCode: string }>();
 
   return (
-    <div className="fixed bottom-0 left-0 w-full border-t-2 bg-background">
+    <div className="fixed bottom-0 left-0 w-full border-t-2 bg-background z-20">
       <div className="flex justify-center p-4">
         <NavigationMenu>
           <NavigationMenuList>

@@ -1,12 +1,13 @@
+import { Plus } from 'lucide-react';
 import React from 'react';
 import { Link, useParams } from 'react-router';
 
 export interface Question {
   id: number;
-  status: 'completed' | 'unlocked' | 'locked';
+  status: 'completed' | 'unlocked' | 'locked' | 'new';
   position: 1 | 2 | 3;
   side: 'none' | 'left' | 'right';
-  type: 'multiple' | 'pairs' | 'fill';
+  type: 'multiple' | 'pairs' | 'fill' | 'none';
 }
 
 interface ItemQuestionTrailProps {
@@ -31,15 +32,25 @@ export default function ItemQuestionTrail({ question }: ItemQuestionTrailProps) 
   };
 
   return (
-    <Link to={`/students/${classCode}/questions/${question.id}`}>
       <div className={`relative w-20 h-20 ${getPositionClass()}`}>
           <div className="absolute top-2 left-0 w-20 h-20 rounded-full bg-gray-300 opacity-50 z-0"></div>
-          <div className={`${getBackgroudColor()} w-20 h-20 rounded-full flex items-center justify-center font-bold text-2xl shadow-lg cursor-pointer transition-transform hover:top-1 relative z-10`}>
-            <div className="w-20 h-20 rounded-full flex items-center justify-center">
-              {question.id}
+          {question.status === 'new' ? (
+            <Link to={`/teachers/${classCode}/addQuestion`}>
+            <div className={`bg-gray-300  border-4 border-dashed dark:bg-gray-700 w-20 h-20 rounded-full flex items-center justify-center font-bold text-2xl shadow-lg cursor-pointer transition-transform hover:top-1 relative z-10`}>
+              <div className="w-20 h-20 rounded-full flex items-center justify-center">
+                <Plus />
+              </div>
             </div>
-          </div>
+            </Link>
+          ) : (
+             <Link to={`/students/${classCode}/questions/${question.id}`}>
+              <div className={`${getBackgroudColor()} w-20 h-20 rounded-full flex items-center justify-center font-bold text-2xl shadow-lg cursor-pointer transition-transform hover:top-1 relative z-10`}>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center">
+                  {question.id}
+                </div>
+              </div>
+            </Link>
+          )}
       </div>
-    </Link>
   );
 };

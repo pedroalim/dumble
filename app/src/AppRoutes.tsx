@@ -13,6 +13,7 @@ import TeachersRanking from "./pages/teachers/TeachersRanking.tsx";
 import TeachersProfile from "./pages/teachers/TeachersProfile.tsx";
 import TeachersClasses from "./pages/teachers/TeachersClasses.tsx";
 import StudentsQuestion from "./pages/students/StudentsQuestion.tsx";
+import TeachersAddQuestion from "./pages/teachers/TeachersAddQuestion.tsx";
 
 export default function AppRoutes() {
   return (
@@ -37,6 +38,7 @@ export default function AppRoutes() {
       <Route path="/teachers/:classCode/files" element={<TeachersFile />} />
       <Route path="/teachers/:classCode/ranking" element={<TeachersRanking />} />
       <Route path="/teachers/:classCode/profile" element={<TeachersProfile />} />
+      <Route path="/teachers/:classCode/addQuestion" element={<TeachersAddQuestion />} />
 
       {/* Catch-all route for 404 page */}
       <Route path="*" element={<NotFound />} />
