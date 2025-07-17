@@ -44,7 +44,7 @@ export default function QuestionMultipleChoice({ showResults, onValidationComple
     const isCorrectOption = optionValue === correctAnswer;
 
     return cn(
-      `border rounded-md w-10 h-10 flex items-center justify-center font-bold`,
+      `border rounded-full w-10 h-10 flex items-center justify-center font-bold`,
       {
         'border-violet-400': isSelected && !showResults,
         'border-lime-400': showResults && isCorrectOption && isSelected,

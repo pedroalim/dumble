@@ -45,18 +45,17 @@ export default function AddQuestionMatchingPairs() {
     };
 
   return (
-    <div className="mt-12">
-        <Label>Titulo:</Label>
+    <div className="mt-4">
+        <Label className="mt-4 mb-2" >Titulo:</Label>
         <Input
             id="title"
             type={"text"} 
             placeholder="Informe o Título"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="pr-10"
         />
         <div className="mt-4">
-        <Label>Forme os pares (esquerda &lt;-&gt; direita)</Label>
+        <Label className="mt-4 mb-2" >Forme os pares (esquerda &lt;-&gt; direita)</Label>
 
             <div className="flex flex-col gap-4 mt-4">
                 {pairs.map((pair, index) => (
