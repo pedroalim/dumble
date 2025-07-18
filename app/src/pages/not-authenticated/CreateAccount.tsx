@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -39,7 +39,7 @@ export default function CreateAccount() {
 
         <div className="space-y-4">
           <div>
-            <Label htmlFor="name">Nome</Label>
+            <Label htmlFor="name" mb-2>Nome</Label>
             <Input
               id="name"
               type="name"
@@ -50,7 +50,7 @@ export default function CreateAccount() {
           </div>
 
           <div>
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="mb-2">Email</Label>
             <Input
               id="email"
               type="email"
@@ -61,7 +61,7 @@ export default function CreateAccount() {
           </div>
 
           <div>
-            <Label htmlFor="password">Senha</Label>
+            <Label htmlFor="password" className="mb-2">Senha</Label>
             <div className="relative">
               <Input
                 id="password"

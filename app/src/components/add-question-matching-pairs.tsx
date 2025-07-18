@@ -78,7 +78,7 @@ export default function AddQuestionMatchingPairs() {
         </div>
 
         <div className="mt-4 flex justify-between">
-            <Button onClick={() => handleCreateAndStop()}>Criar e Parar</Button>
+            <Button onClick={() => handleCreateAndStop()} variant={"outline"}>Criar e Parar</Button>
             <Button onClick={() => handleCreateAndContinue()}>Criar e Continuar</Button>
         </div>
     </div>
