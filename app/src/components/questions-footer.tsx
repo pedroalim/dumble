@@ -4,13 +4,13 @@ import { Button } from "./ui/button";
 
 interface QuestionsFooterProps {
   state: 'none' | 'correct' | 'wrong';
-  onContinue: () => void;
+  onContinue: (state: 'none' | 'correct' | 'wrong') => void;
 }
 
 export default function QuestionsFooter({ state, onContinue }: QuestionsFooterProps) {
 
   const handleContinue = () => {
-    onContinue();
+    onContinue(state);
   }
 
   return (

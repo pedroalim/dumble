@@ -3,7 +3,7 @@ import { useState } from "react";
 import QuestionMatchingPairs from "@/components/question-matching-pairs";
 import QuestionsFooter from "@/components/questions-footer";
 import QuestionsProgressBar from "@/components/questions-progress-bar";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import QuestionMultipleChoice from "@/components/question-multiple-choice";
 import QuestionFillInTheBlank from "@/components/question-fill-in-the-blank";
 
@@ -11,12 +11,31 @@ export default function StudentsQuestion() {
   const { classCode, questionId } = useParams<{ classCode: string; questionId: string }>();
   const [showResults, setShowResults] = useState(false);
   const [footerState, setFooterState] = useState<'none' | 'correct' | 'wrong'>('none');
+  const [isRemake, setIsRemake] = useState(false);
 
-  const handleContinue = () => {
-    setShowResults(true);
+  const navigateTo = useNavigate();
+
+  const handleContinue = (status: 'none' | 'correct' | 'wrong') => {
+    if(status === 'none') { // se não tinha clicado ainda
+      setShowResults(true);
+    } else { // se ja tinha resultado, ao clicar, leva para a proxima
+      if(isRemake){
+        setShowResults(false); 
+        setIsRemake(false);
+        setFooterState('none');
+        navigateTo(`/students/ED-1234/`)
+        
+      } else {
+        const questionIdNumber = Number(questionId);
+        setShowResults(false); 
+        setIsRemake(false);
+        setFooterState('none');
+        navigateTo(`/students/ED-1234/questions/${questionIdNumber + 1}`)
+      }
+    }
   };
 
-  const handleValidationComplete = (status: 'correct' | 'wrong') => {
+  const handleValidationComplete = (status: 'none' | 'correct' | 'wrong') => {
     setFooterState(status);
   };
 
