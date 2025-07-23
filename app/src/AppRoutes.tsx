@@ -14,6 +14,8 @@ import TeachersProfile from "./pages/teachers/TeachersProfile.tsx";
 import TeachersClasses from "./pages/teachers/TeachersClasses.tsx";
 import StudentsQuestion from "./pages/students/StudentsQuestion.tsx";
 import TeachersAddQuestion from "./pages/teachers/TeachersAddQuestion.tsx";
+import StudentsClassInfo from "./pages/students/StudentsClassInfo.tsx";
+import TeachersClassInfo from "./pages/teachers/TeachersClassInfo.tsx";
 
 export default function AppRoutes() {
   return (
@@ -26,6 +28,7 @@ export default function AppRoutes() {
       <Route path="/students/classes" element={<StudentsClasses />} />
       <Route path="/students/" element={<StudentsClasses />} />
       <Route path="/students/:classCode" element={<StudentsHome />} />
+      <Route path="/students/:classCode/info" element={<StudentsClassInfo />} />
       <Route path="/students/:classCode/chatbot" element={<StudentsChatBot />} />
       <Route path="/students/:classCode/ranking" element={<StudentsRanking />} />
       <Route path="/students/:classCode/profile" element={<StudentsProfile />} />
@@ -35,6 +38,7 @@ export default function AppRoutes() {
       <Route path="/teachers/classes" element={<TeachersClasses />} />
       <Route path="/teachers/" element={<TeachersClasses />} />
       <Route path="/teachers/:classCode" element={<TeachersHome />} />
+       <Route path="/teachers/:classCode/info" element={<TeachersClassInfo />} />
       <Route path="/teachers/:classCode/files" element={<TeachersFile />} />
       <Route path="/teachers/:classCode/ranking" element={<TeachersRanking />} />
       <Route path="/teachers/:classCode/profile" element={<TeachersProfile />} />

@@ -43,6 +43,10 @@ export default function ItemQuestionTrail({ question }: ItemQuestionTrailProps) 
     window.location.href = `/students/${classCode}/questions/${question.id}`
   }
 
+  async function handleRemakeAllQuestions(){
+    window.location.href = `/students/${classCode}/questions/1`
+  }
+
   return (
     <div className={`relative w-20 h-20 ${getPositionClass()}`}>
       <AlertDialog open={open} onOpenChange={setOpen}>
@@ -55,7 +59,8 @@ export default function ItemQuestionTrail({ question }: ItemQuestionTrailProps) 
               </AlertDialogHeader>
               <AlertDialogFooter>
               <AlertDialogCancel>Cancelar</AlertDialogCancel>
-              <AlertDialogAction onClick={() => handleRemakeQuestion()}>Refazer</AlertDialogAction>
+              <AlertDialogAction onClick={() => handleRemakeAllQuestions()}>Refazer Todas</AlertDialogAction>
+               <AlertDialogAction onClick={() => handleRemakeQuestion()}>Refazer Essa</AlertDialogAction>
               </AlertDialogFooter>
           </AlertDialogContent>
       </AlertDialog>

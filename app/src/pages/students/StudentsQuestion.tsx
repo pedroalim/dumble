@@ -12,6 +12,7 @@ export default function StudentsQuestion() {
   const [showResults, setShowResults] = useState(false);
   const [footerState, setFooterState] = useState<'none' | 'correct' | 'wrong'>('none');
   const [isRemake, setIsRemake] = useState(false);
+  const [isRemakeAll, setIsRemakeAll] = useState(false);
 
   const navigateTo = useNavigate();
 
@@ -19,10 +20,11 @@ export default function StudentsQuestion() {
     if(status === 'none') { // se não tinha clicado ainda
       setShowResults(true);
     } else { // se ja tinha resultado, ao clicar, leva para a proxima
-      if(isRemake){
+      if(isRemake && !isRemakeAll){
         setShowResults(false); 
         setIsRemake(false);
         setFooterState('none');
+        setIsRemakeAll(false);
         navigateTo(`/students/ED-1234/`)
         
       } else {
@@ -30,6 +32,7 @@ export default function StudentsQuestion() {
         setShowResults(false); 
         setIsRemake(false);
         setFooterState('none');
+        setIsRemakeAll(false);
         navigateTo(`/students/ED-1234/questions/${questionIdNumber + 1}`)
       }
     }
