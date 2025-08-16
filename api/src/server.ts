@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
-import cors from 'cors';
+import cors from 'cors'; // cors = biblioteca da parte de segurança (controlar a origem basicamente)
 
-const app = express();
-const port = 3000;
+const app = express(); // cria o servidor usando a biblioteca express
+const port = 3000; 
 
 const corsOptions = {
-  origin: ['*'],
+  origin: ['*'], // se deixar o IP do meu pc, só ele acessa o server
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
