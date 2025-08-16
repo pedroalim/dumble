@@ -6,7 +6,7 @@ export class Database {
   private static instance: Database;
   private pool: Pool;
 
-  // O construtor é privado para impedir a criação de novas instâncias
+  // O construtor é privado para impedir a criação de novas instâncias,
   private constructor() {
     this.pool = new Pool({
       user: process.env.DB_USER,
