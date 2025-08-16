@@ -1,5 +1,8 @@
+import 'dotenv/config';
+
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import routes from './routes';
 
 const app = express();
 const port = 3000;
@@ -19,9 +22,7 @@ app.get('/health', (req: Request, res: Response) => {
   res.send('OK');
 });
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Servidor rodando');
-});
+app.use(routes);
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
